@@ -1,5 +1,7 @@
 package tetrisgui;
 
+import java.awt.*;
+
 /**
  *
  * @author samus
@@ -7,13 +9,21 @@ package tetrisgui;
 public class Pezzi {
 
     
-    int o[][] = {{1, 1},
-                {1, 1}}; 
+    Point[] o = new Point[]{
+        new Point(0, 0),
+        new Point(0, 1),
+        new Point(1, 0),
+        new Point(1, 1),
+    };
 
-    int i[][] = {{2},
-                {2},
-                {2},
-                {2}};
+    
+    Point[] i = new Point[] {
+        new Point(),
+        new Point(),
+        new Point(),
+        new Point(),
+    
+    }
     
     int s[][] = {{0, 3, 3},
                 {3, 3, 0}};

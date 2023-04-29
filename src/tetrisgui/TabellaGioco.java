@@ -1,11 +1,17 @@
 package tetrisgui;
 
+import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 /**
  *
  * @author samus
  */
-public class TabellaGioco{
+public class TabellaGioco extends Canvas{
     GUITetris f;
+    
+    Graphics pezzo;
+    
     int rows;
     int col;
     
@@ -33,8 +39,16 @@ public class TabellaGioco{
         this.col = c;
     }
     
-    public void creaTabellaAstratta(){
-        rows /= 15;
-        col /= 10;
+//    public void creaTabellaAstratta(){
+//        rows /= 15; //creo la tabella dividendo la parte di sinstra per le righe
+//        col /= 10;  //e la parte alta per il numero di colonne arrivando a fare una tabella di 15x10
+//    } 
+    
+    public void createT(Graphics g){
+        g.drawRect(rows/2, col, 10, 10);
+        g.setColor(Color.green);
+    }
+    
+    public void gioco(){
     }
 }

@@ -12,7 +12,7 @@ public class GUITetris extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
-                        
+        tab.gioco();
     }
 
     /**
