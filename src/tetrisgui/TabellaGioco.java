@@ -5,12 +5,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 /**
  *
- * @author samus
+ * @author samus & crist
  */
-public class TabellaGioco extends Canvas{
+public class TabellaGioco{
     GUITetris f;
-    
-    Graphics pezzo;
     Pezzi p;
     
     int rows;
@@ -44,5 +42,6 @@ public class TabellaGioco extends Canvas{
     public void creaTabellaAstratta(){
         rows /= 15; //creo la tabella dividendo la parte di sinstra per le righe
         col /= 10;  //e la parte alta per il numero di colonne arrivando a fare una tabella di 15x10
+        
     } 
 }

@@ -1,19 +1,21 @@
 package tetrisgui;
+
 import java.awt.*;
 /**
  *
- * @author samus
+ * @author samus & crist
  */
 public class GUITetris extends javax.swing.JFrame {
     
     TabellaGioco tab;
-    Graphics g;
+    Pezzi pezzo = new Pezzi(this);
     
     public GUITetris() {
         initComponents();
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null); //centro la finestra
+        
         tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
-        tab.p.drawPiece();
+        pnlGame.add(pezzo.pezzo_O);
     }
     
     /**
@@ -147,7 +149,6 @@ public class GUITetris extends javax.swing.JFrame {
                 .addGap(28, 28, 28))
         );
 
-        pnlGame.setBackground(new java.awt.Color(102, 102, 102));
         pnlGame.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         pnlGame.setPreferredSize(new java.awt.Dimension(400, 600));
 
@@ -159,7 +160,7 @@ public class GUITetris extends javax.swing.JFrame {
         );
         pnlGameLayout.setVerticalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 596, Short.MAX_VALUE)
+            .addGap(0, 602, Short.MAX_VALUE)
         );
 
         lblTitolo.setBackground(new java.awt.Color(45, 46, 131));
@@ -187,7 +188,8 @@ public class GUITetris extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lblTitolo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addComponent(pnlControls, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -195,10 +197,8 @@ public class GUITetris extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPausaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPausaActionPerformed
-        
         this.setVisible(false);
         new framePausa(this).setVisible(true);
-
     }//GEN-LAST:event_btnPausaActionPerformed
 
     private void btnTerminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminaActionPerformed
@@ -206,6 +206,7 @@ public class GUITetris extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnTerminaActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
@@ -237,6 +238,7 @@ public class GUITetris extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new framePrincipale().setVisible(true);
+                
             }
         });
     }

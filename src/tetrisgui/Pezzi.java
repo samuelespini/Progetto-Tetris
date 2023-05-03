@@ -5,15 +5,24 @@ import javax.swing.*;
 import java.util.*;
 /**
  *
- * @author samus
- */
+ * @author samus & crist 
+*/
 public class Pezzi extends JFrame{
     
     GUITetris frame;
     
     public Pezzi(GUITetris f) {
-        this.frame = f;
+        this.frame = f; //copio il pannello
     }
+    
+    JPanel pezzo_O = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) { //disegno il quadrato rosso
+                super.paintComponent(g);
+                g.setColor(Color.RED);
+                g.fillRect(50, 30, 10, 10);
+            }
+        };
     
     Point[] o = { new Point(0, 0), new Point(0, 1), new Point(1, 0), new Point(1, 1)};
 
@@ -23,8 +32,7 @@ public class Pezzi extends JFrame{
 
     Point[] l = {new Point(0,0), new Point(3, 0), new Point(1,1), new Point(2,1), new Point(2,2), new Point(2, 3)};
     
-    ArrayList<Point> pezzi = new ArrayList<Point>();
-    
+//    ArrayList<Point> pezzi = new ArrayList<Point>();
     
     
 //    int z[][] = {{4, 4, 0},
@@ -36,12 +44,5 @@ public class Pezzi extends JFrame{
 //
 //    int t[][] = {{7, 7, 7},
 //    {0, 7, 0}};
-
-    
-    public void drawPiece() {
-        Graphics g = null;
-        g.drawRect(frame.pnlGame.getX() * 5, frame.pnlGame.getY(), 10, 10);
-        g.setColor(Color.YELLOW);
-        g.fillRect(frame.pnlGame.getX() * 7, frame.pnlGame.getY(), 10, 10);
-    }
+   
 }
