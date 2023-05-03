@@ -1,46 +1,47 @@
 package tetrisgui;
 
 import java.awt.*;
-
+import javax.swing.*;
+import java.util.*;
 /**
  *
  * @author samus
  */
-public class Pezzi {
-
+public class Pezzi extends JFrame{
     
-    Point[] o = new Point[]{
-        new Point(0, 0),
-        new Point(0, 1),
-        new Point(1, 0),
-        new Point(1, 1),
-    };
-
+    GUITetris frame;
     
-    Point[] i = new Point[] {
-        new Point(),
-        new Point(),
-        new Point(),
-        new Point(),
-    
+    public Pezzi(GUITetris f) {
+        this.frame = f;
     }
     
-    int s[][] = {{0, 3, 3},
-                {3, 3, 0}};
+    Point[] o = { new Point(0, 0), new Point(0, 1), new Point(1, 0), new Point(1, 1)};
+
+    Point[] i = { new Point(0, 0), new Point(0, 4), new Point(1, 0), new Point(1, 4)};
+
+    Point[] s = {new Point(1, 0), new Point(1,1), new Point (0,1), new Point(0,2), new Point(3,0), new Point(3,1), new Point(2,1), new Point(2,2)};
+
+    Point[] l = {new Point(0,0), new Point(3, 0), new Point(1,1), new Point(2,1), new Point(2,2), new Point(2, 3)};
     
-    int z[][] = {{4, 4, 0},
-                {0, 4, 4}};
-
-    int l[][] = {{5, 0},
-                {5, 0},
-                {5, 5}};
-
-    int j[][] = {{0, 6},
-                {0, 6},
-                {6, 6}};
-
-    int t[][] = {{7, 7, 7},
-                {0, 7, 0}};
+    ArrayList<Point> pezzi = new ArrayList<Point>();
+    
+    
+    
+//    int z[][] = {{4, 4, 0},
+//    {0, 4, 4}};
+//    
+//    int j[][] = {{0, 6},
+//    {0, 6},
+//    {6, 6}};
+//
+//    int t[][] = {{7, 7, 7},
+//    {0, 7, 0}};
 
     
+    public void drawPiece() {
+        Graphics g = null;
+        g.drawRect(frame.pnlGame.getX() * 5, frame.pnlGame.getY(), 10, 10);
+        g.setColor(Color.YELLOW);
+        g.fillRect(frame.pnlGame.getX() * 7, frame.pnlGame.getY(), 10, 10);
+    }
 }

@@ -1,5 +1,5 @@
 package tetrisgui;
-
+import java.awt.*;
 /**
  *
  * @author samus
@@ -7,14 +7,15 @@ package tetrisgui;
 public class GUITetris extends javax.swing.JFrame {
     
     TabellaGioco tab;
+    Graphics g;
     
     public GUITetris() {
         initComponents();
         setLocationRelativeTo(null);
         tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
-        tab.gioco();
+        tab.p.drawPiece();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

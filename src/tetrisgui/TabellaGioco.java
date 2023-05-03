@@ -11,6 +11,7 @@ public class TabellaGioco extends Canvas{
     GUITetris f;
     
     Graphics pezzo;
+    Pezzi p;
     
     int rows;
     int col;
@@ -21,6 +22,7 @@ public class TabellaGioco extends Canvas{
                                     //per determinare il numero di righe del tabellone
         col=f.pnlGame.getWidth();     //prendo la dimensione della larghezza
                                     //per determinare il numero di colonne
+        p = new Pezzi(this.f);
     }
 
     public int getR() {
@@ -39,16 +41,8 @@ public class TabellaGioco extends Canvas{
         this.col = c;
     }
     
-//    public void creaTabellaAstratta(){
-//        rows /= 15; //creo la tabella dividendo la parte di sinstra per le righe
-//        col /= 10;  //e la parte alta per il numero di colonne arrivando a fare una tabella di 15x10
-//    } 
-    
-    public void createT(Graphics g){
-        g.drawRect(rows/2, col, 10, 10);
-        g.setColor(Color.green);
-    }
-    
-    public void gioco(){
-    }
+    public void creaTabellaAstratta(){
+        rows /= 15; //creo la tabella dividendo la parte di sinstra per le righe
+        col /= 10;  //e la parte alta per il numero di colonne arrivando a fare una tabella di 15x10
+    } 
 }
