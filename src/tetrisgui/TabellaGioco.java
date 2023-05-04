@@ -16,7 +16,7 @@ public class TabellaGioco{
     
     public TabellaGioco(GUITetris f) {
         this.f = f;
-        rows=f.pnlGame.getHeight();    //prendo la dimensione dell'altezza
+        rows=f.pnlGame.getWidth();   //prendo la dimensione dell'altezza
                                     //per determinare il numero di righe del tabellone
         col=f.pnlGame.getWidth();     //prendo la dimensione della larghezza
                                     //per determinare il numero di colonne

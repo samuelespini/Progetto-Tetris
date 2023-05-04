@@ -18,6 +18,7 @@ public class GUITetris extends JFrame {
         
         tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
         this.add(new pnlGame());
+        this.add(new pnlGameRett());
     }
     
     /**
@@ -167,7 +168,7 @@ public class GUITetris extends JFrame {
         );
         pnlGameLayout.setVerticalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 596, Short.MAX_VALUE)
+            .addGap(0, 602, Short.MAX_VALUE)
         );
 
         lblTitolo.setBackground(new java.awt.Color(45, 46, 131));
@@ -266,6 +267,6 @@ public class GUITetris extends JFrame {
     private javax.swing.JLabel lblValorePunteggio;
     private javax.swing.JLabel lblnomeInserito;
     private javax.swing.JPanel pnlControls;
-    public javax.swing.JPanel pnlGame;
+    javax.swing.JPanel pnlGame;
     // End of variables declaration//GEN-END:variables
 }
