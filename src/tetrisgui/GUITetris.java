@@ -1,11 +1,13 @@
 package tetrisgui;
 
 import java.awt.*;
+import javax.swing.*;
+
 /**
  *
  * @author samus & crist
  */
-public class GUITetris extends javax.swing.JFrame {
+public class GUITetris extends JFrame {
     
     TabellaGioco tab;
     Pezzi pezzo = new Pezzi(this);
@@ -15,7 +17,7 @@ public class GUITetris extends javax.swing.JFrame {
         setLocationRelativeTo(null); //centro la finestra
         
         tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
-        pnlGame.add(pezzo.pezzo_O);
+        this.add(new pnlGame());
     }
     
     /**
@@ -151,6 +153,11 @@ public class GUITetris extends javax.swing.JFrame {
 
         pnlGame.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         pnlGame.setPreferredSize(new java.awt.Dimension(400, 600));
+        pnlGame.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                pnlGameComponentAdded(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlGameLayout = new javax.swing.GroupLayout(pnlGame);
         pnlGame.setLayout(pnlGameLayout);
@@ -160,7 +167,7 @@ public class GUITetris extends javax.swing.JFrame {
         );
         pnlGameLayout.setVerticalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
+            .addGap(0, 596, Short.MAX_VALUE)
         );
 
         lblTitolo.setBackground(new java.awt.Color(45, 46, 131));
@@ -205,6 +212,10 @@ public class GUITetris extends javax.swing.JFrame {
         new frameTermina(this).setVisible(true);
 
     }//GEN-LAST:event_btnTerminaActionPerformed
+
+    private void pnlGameComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_pnlGameComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pnlGameComponentAdded
 
     
     /**
