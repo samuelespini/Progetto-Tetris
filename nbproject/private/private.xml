@@ -3,11 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/samus/OneDrive/Desktop/Clone%20ProgettoTetris/Progetto-Tetris/src/tetrisgui/Pezzi.java</file>
-            <file>file:/C:/Users/samus/OneDrive/Desktop/Clone%20ProgettoTetris/Progetto-Tetris/src/tetrisgui/pnlGame.java</file>
-            <file>file:/C:/Users/samus/OneDrive/Desktop/Clone%20ProgettoTetris/Progetto-Tetris/src/tetrisgui/TabellaGioco.java</file>
-            <file>file:/C:/Users/samus/OneDrive/Desktop/Clone%20ProgettoTetris/Progetto-Tetris/src/tetrisgui/GUITetris.java</file>
-            <file>file:/C:/Users/samus/OneDrive/Desktop/Clone%20ProgettoTetris/Progetto-Tetris/src/tetrisgui/pnlGameRett.java</file>
+            <file>file:/C:/Users/crist/Desktop/Clone%20tetris/Progetto-Tetris/src/tetrisgui/Pezzi.java</file>
+            <file>file:/C:/Users/crist/Desktop/Clone%20tetris/Progetto-Tetris/src/tetrisgui/frameInserisciNome.java</file>
+            <file>file:/C:/Users/crist/Desktop/Clone%20tetris/Progetto-Tetris/src/tetrisgui/framePrincipale.java</file>
+            <file>file:/C:/Users/crist/Desktop/Clone%20tetris/Progetto-Tetris/src/tetrisgui/framePunteggi.java</file>
+            <file>file:/C:/Users/crist/Desktop/Clone%20tetris/Progetto-Tetris/src/tetrisgui/GUITetris.java</file>
+            <file>file:/C:/Users/crist/Desktop/Clone%20tetris/Progetto-Tetris/src/tetrisgui/framePausa.java</file>
+            <file>file:/C:/Users/crist/Desktop/Clone%20tetris/Progetto-Tetris/src/tetrisgui/frameTermina.java</file>
+            <file>file:/C:/Users/crist/Desktop/Clone%20tetris/Progetto-Tetris/src/tetrisgui/TabellaGioco.java</file>
+            <file>file:/C:/Users/crist/Desktop/Clone%20tetris/Progetto-Tetris/src/tetrisgui/pnlGameRett.java</file>
         </group>
     </open-files>
 </project-private>

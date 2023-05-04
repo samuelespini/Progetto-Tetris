@@ -12,14 +12,57 @@ public class GUITetris extends JFrame {
     TabellaGioco tab;
     Pezzi pezzo = new Pezzi(this);
     
+    int nRandom;
+    int max = 7;
+    int min = 1;
+    int range = max - min + 1;
+    
+    int i = 0;
+    
     public GUITetris() {
         initComponents();
         setLocationRelativeTo(null); //centro la finestra
         
         tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
-        this.add(new pnlGame());
-        this.add(new pnlGameRett());
+        
+        do{ //ciclo per generare pezzi
+            nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
+            System.out.println("n= " + nRandom);
+            
+            switch (nRandom) {
+                case 1: //pezzo o
+                    this.pnlGame = new JPanel(){
+                        @Override
+                        public void paint(Graphics g){
+                            Graphics2D g2d = (Graphics2D) g;
+                            g2d.setColor(Color.red);
+                            g.fillRect(50, 50, 30, 30);
+                        }
+                    };
+                break;
+                
+                case 2: //pezzo i
+                    this.pnlGame = new JPanel(){
+                        @Override
+                        public void paint(Graphics g){
+                            Graphics2D g2d = (Graphics2D) g;
+                            g2d.setColor(Color.red);
+                            g.fillRect(50, 50, 30, 120);
+                        }
+                    };
+                break;
+                
+                case 3:
+                    //WIP
+                break;
+            }
+            
+            i++;
+        }while(i<10);
+        
+        
     }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -153,12 +196,8 @@ public class GUITetris extends JFrame {
         );
 
         pnlGame.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        pnlGame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pnlGame.setPreferredSize(new java.awt.Dimension(400, 600));
-        pnlGame.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                pnlGameComponentAdded(evt);
-            }
-        });
 
         javax.swing.GroupLayout pnlGameLayout = new javax.swing.GroupLayout(pnlGame);
         pnlGame.setLayout(pnlGameLayout);
@@ -211,12 +250,7 @@ public class GUITetris extends JFrame {
 
     private void btnTerminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminaActionPerformed
         new frameTermina(this).setVisible(true);
-
     }//GEN-LAST:event_btnTerminaActionPerformed
-
-    private void pnlGameComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_pnlGameComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pnlGameComponentAdded
 
     
     /**
@@ -267,6 +301,6 @@ public class GUITetris extends JFrame {
     private javax.swing.JLabel lblValorePunteggio;
     private javax.swing.JLabel lblnomeInserito;
     private javax.swing.JPanel pnlControls;
-    javax.swing.JPanel pnlGame;
+    public javax.swing.JPanel pnlGame;
     // End of variables declaration//GEN-END:variables
 }
