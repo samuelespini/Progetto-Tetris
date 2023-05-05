@@ -31,14 +31,22 @@ public class GUITetris extends JFrame {
             
             switch (nRandom) {
                 case 1: //pezzo o
-                    this.pnlGame = new JPanel(){
+//                    this.pnlGame = new JPanel(){
+//                        @Override
+//                        public void paint(Graphics g){
+//                            Graphics2D g2d = (Graphics2D) g;
+//                            g2d.setColor(Color.red);
+//                            g.fillRect(50, 50, 30, 30);
+//                        }
+//                    };
+                    jFrame1.add(this.pnlGame = new JPanel(){
                         @Override
                         public void paint(Graphics g){
                             Graphics2D g2d = (Graphics2D) g;
                             g2d.setColor(Color.red);
                             g.fillRect(50, 50, 30, 30);
                         }
-                    };
+                    });
                 break;
                 
                 case 2: //pezzo i
@@ -58,7 +66,7 @@ public class GUITetris extends JFrame {
             }
             
             i++;
-        }while(i<10);
+        }while(i<30);
         
         
     }
