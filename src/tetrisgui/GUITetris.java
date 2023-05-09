@@ -12,10 +12,10 @@ public class GUITetris extends JFrame {
     TabellaGioco tab;
     Pezzi pezzi;
     
-    int nRandom;
     int max = 7;
     int min = 1;
     int range = max - min + 1;
+    int nRandom;
     
     int i = 0;
     
@@ -24,20 +24,16 @@ public class GUITetris extends JFrame {
         setLocationRelativeTo(null); //centro la finestra
         
         tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
-        pezzi = new Pezzi(this.pnlGame);
+        pezzi = new Pezzi(pnlGame);
+        
         do{ //ciclo per generare pezzi
             nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
-            System.out.println("n= " + nRandom);
+            System.out.println("" + nRandom);
             
-            JPanel pnlGame = new JPanel();
-            pnlGame = pezzi.generatePiece(nRandom);
-                    
-            //.add(pezzi.generatePiece(nRandom));
+            this.pnlGame = pezzi.generatePiece(nRandom);
                        
             i++;
-        }while(i<30);
-        
-        
+        }while(i<30); //genero 30 numeri
     }
     
     

@@ -2,33 +2,49 @@ package tetrisgui;
 
 import java.awt.*;
 import javax.swing.*;
-import java.util.*;
+
 /**
  *
- * @author samus & crist 
-*/
-public class Pezzi extends JPanel{
-    
+ * @author samus & crist
+ */
+public class Pezzi extends JPanel {
+
     JPanel clonePnlGame;
-        
+
     public Pezzi(JPanel p) {
-        this.clonePnlGame = p; //copio il pannello
+        this.clonePnlGame = p; //copio il riferimento del pannello pnlGame di GUITetris in questa classe
     }
-    
-    public JPanel generatePiece(int nRandom){
+
+    public JPanel generatePiece(int nRandom) {
         switch (nRandom) {
             case 1:  //pezzo O
-              clonePnlGame = new JPanel(){
-                public void paintO(Graphics g){
-                    Graphics2D g2D = (Graphics2D) g;
-                    g2D.setColor(Color.red);
-                    g2D.fillRect(10, 10, 20, 20);
-                }   
-              }; 
+                clonePnlGame = new JPanel() {
+                    public void paint(Graphics g) {
+                        Graphics2D g2d = (Graphics2D) g;
+                        super.paint(g2d);
+                        g2d.setColor(Color.red);
+                        g2d.fillRect(10, 10, 40, 40);
+                    }
+                };
+                clonePnlGame.setVisible(true);
+                clonePnlGame.setSize(600, 400);
+                break;
+
+            case 2: //pezzo I
+                clonePnlGame = new JPanel() {
+                    public void paint(Graphics g) {
+                        Graphics2D g2d = (Graphics2D) g;
+                        super.paint(g2d);
+                        g2d.setColor(Color.blue);
+                        g2d.fillRect(10, 10, 160, 40);
+                    }
+                };
+                clonePnlGame.setVisible(true);
+                clonePnlGame.setSize(600, 400);
             break;
         }
-        
+
         return clonePnlGame;
     }
-    
+
 }
