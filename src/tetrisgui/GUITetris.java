@@ -10,7 +10,7 @@ import javax.swing.*;
 public class GUITetris extends JFrame {
     
     TabellaGioco tab;
-    Pezzi pezzo = new Pezzi(this);
+    Pezzi pezzi;
     
     int nRandom;
     int max = 7;
@@ -24,47 +24,16 @@ public class GUITetris extends JFrame {
         setLocationRelativeTo(null); //centro la finestra
         
         tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
-        
+        pezzi = new Pezzi(this.pnlGame);
         do{ //ciclo per generare pezzi
             nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
             System.out.println("n= " + nRandom);
             
-            switch (nRandom) {
-                case 1: //pezzo o
-//                    this.pnlGame = new JPanel(){
-//                        @Override
-//                        public void paint(Graphics g){
-//                            Graphics2D g2d = (Graphics2D) g;
-//                            g2d.setColor(Color.red);
-//                            g.fillRect(50, 50, 30, 30);
-//                        }
-//                    };
-                    jFrame1.add(this.pnlGame = new JPanel(){
-                        @Override
-                        public void paint(Graphics g){
-                            Graphics2D g2d = (Graphics2D) g;
-                            g2d.setColor(Color.red);
-                            g.fillRect(50, 50, 30, 30);
-                        }
-                    });
-                break;
-                
-                case 2: //pezzo i
-                    this.pnlGame = new JPanel(){
-                        @Override
-                        public void paint(Graphics g){
-                            Graphics2D g2d = (Graphics2D) g;
-                            g2d.setColor(Color.red);
-                            g.fillRect(50, 50, 30, 120);
-                        }
-                    };
-                break;
-                
-                case 3:
-                    //WIP
-                break;
-            }
-            
+            JPanel pnlGame = new JPanel();
+            pnlGame = pezzi.generatePiece(nRandom);
+                    
+            //.add(pezzi.generatePiece(nRandom));
+                       
             i++;
         }while(i<30);
         

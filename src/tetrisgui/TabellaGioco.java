@@ -20,7 +20,7 @@ public class TabellaGioco{
                                     //per determinare il numero di righe del tabellone
         col=f.pnlGame.getWidth();     //prendo la dimensione della larghezza
                                     //per determinare il numero di colonne
-        p = new Pezzi(this.f);
+        p = new Pezzi(this.f.pnlGame);
     }
 
     public int getR() {
