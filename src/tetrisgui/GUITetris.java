@@ -2,6 +2,7 @@ package tetrisgui;
 
 import java.awt.*;
 import javax.swing.*;
+import temp.DisplayGraphics;
 
 /**
  *
@@ -25,15 +26,15 @@ public class GUITetris extends JFrame {
         
         tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
         pezzi = new Pezzi(pnlGame);
-        
-        do{ //ciclo per generare pezzi
-            nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
-            System.out.println("" + nRandom);
-            
-            this.pnlGame = pezzi.generatePiece(nRandom);
-                       
-            i++;
-        }while(i<30); //genero 30 numeri
+
+        nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
+        System.out.println("" + nRandom);
+        DisplayGraphics dg =new DisplayGraphics();   
+        this.pnlGame.add(dg);
+        dg.setPezzo(1);
+        dg.repaint();
+        i++;
+
     }
     
     

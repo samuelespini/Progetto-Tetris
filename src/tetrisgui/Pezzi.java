@@ -19,7 +19,7 @@ public class Pezzi extends JPanel {
         switch (nRandom) {
             case 1:  //pezzo O
                 clonePnlGame = new JPanel() {
-                    public void paint(Graphics g) {
+                    public void paintComponent(Graphics g) {
                         Graphics2D g2d = (Graphics2D) g;
                         super.paint(g2d);
                         g2d.setColor(Color.red);
@@ -28,11 +28,13 @@ public class Pezzi extends JPanel {
                 };
                 clonePnlGame.setVisible(true);
                 clonePnlGame.setSize(600, 400);
+
+
                 break;
 
             case 2: //pezzo I
                 clonePnlGame = new JPanel() {
-                    public void paint(Graphics g) {
+                    public void paintComponent(Graphics g) {
                         Graphics2D g2d = (Graphics2D) g;
                         super.paint(g2d);
                         g2d.setColor(Color.blue);
