@@ -2,7 +2,7 @@ package tetrisgui;
 
 import java.awt.*;
 import javax.swing.*;
-import temp.DisplayGraphics;
+import java.util.*;
 
 /**
  *
@@ -11,7 +11,7 @@ import temp.DisplayGraphics;
 public class GUITetris extends JFrame {
     
     TabellaGioco tab;
-    Pezzi pezzi;
+    ArrayList<Pezzi> listaPezzi = new ArrayList<Pezzi>();
     
     int max = 7;
     int min = 1;
@@ -25,14 +25,14 @@ public class GUITetris extends JFrame {
         setLocationRelativeTo(null); //centro la finestra
         
         tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
-        pezzi = new Pezzi(pnlGame);
 
         nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
         System.out.println("" + nRandom);
-        DisplayGraphics dg =new DisplayGraphics();   
-        this.pnlGame.add(dg);
-        dg.setPezzo(1);
-        dg.repaint();
+        Pezzi p =new Pezzi();   
+        this.pnlGame.add(p);
+        p.setPezzo(2);
+        p.repaint();
+        listaPezzi.add(p);
         i++;
 
     }
@@ -169,7 +169,6 @@ public class GUITetris extends JFrame {
                 .addGap(28, 28, 28))
         );
 
-        pnlGame.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         pnlGame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         pnlGame.setPreferredSize(new java.awt.Dimension(400, 600));
 
@@ -177,11 +176,11 @@ public class GUITetris extends JFrame {
         pnlGame.setLayout(pnlGameLayout);
         pnlGameLayout.setHorizontalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 396, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         pnlGameLayout.setVerticalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
+            .addGap(0, 606, Short.MAX_VALUE)
         );
 
         lblTitolo.setBackground(new java.awt.Color(45, 46, 131));

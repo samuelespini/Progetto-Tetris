@@ -1,52 +1,46 @@
 package tetrisgui;
 
-import java.awt.*;
-import javax.swing.*;
+import java.awt.*;  
+import javax.swing.JFrame;  
+import javax.swing.JPanel;
 
 /**
  *
- * @author samus & crist
+ * @author cristiano.catemario
  */
-public class Pezzi extends JPanel {
+public class Pezzi extends JPanel{
+    Graphics2D g2d;
+    
+    private int pezzo = 0;
 
-    JPanel clonePnlGame;
-
-    public Pezzi(JPanel p) {
-        this.clonePnlGame = p; //copio il riferimento del pannello pnlGame di GUITetris in questa classe
+    public Pezzi(){
+         this.setSize(400, 600);
+         this.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+    }   
+    
+    public void setPezzo(int pezzo) {
+        this.pezzo = pezzo;
     }
-
-    public JPanel generatePiece(int nRandom) {
-        switch (nRandom) {
+    
+    @Override
+    public void paint(Graphics g){
+        g2d = (Graphics2D)g;
+        disegna();
+    }
+    
+    public void disegna(){
+         switch (pezzo) {
             case 1:  //pezzo O
-                clonePnlGame = new JPanel() {
-                    public void paintComponent(Graphics g) {
-                        Graphics2D g2d = (Graphics2D) g;
-                        super.paint(g2d);
-                        g2d.setColor(Color.red);
-                        g2d.fillRect(10, 10, 40, 40);
-                    }
-                };
-                clonePnlGame.setVisible(true);
-                clonePnlGame.setSize(600, 400);
-
-
+                super.paint(g2d);
+                g2d.setColor(Color.red);
+                g2d.fillRect(10, 10, 40, 40);
                 break;
 
             case 2: //pezzo I
-                clonePnlGame = new JPanel() {
-                    public void paintComponent(Graphics g) {
-                        Graphics2D g2d = (Graphics2D) g;
-                        super.paint(g2d);
-                        g2d.setColor(Color.blue);
-                        g2d.fillRect(10, 10, 160, 40);
-                    }
-                };
-                clonePnlGame.setVisible(true);
-                clonePnlGame.setSize(600, 400);
+                super.paint(g2d);
+                g2d.setColor(Color.blue);
+                g2d.fillRect(10, 10, 160, 40);
             break;
         }
-
-        return clonePnlGame;
     }
-
 }

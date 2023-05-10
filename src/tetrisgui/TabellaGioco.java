@@ -9,7 +9,6 @@ import java.awt.Graphics;
  */
 public class TabellaGioco{
     GUITetris f;
-    Pezzi p;
     
     int rows;
     int col;
@@ -20,7 +19,6 @@ public class TabellaGioco{
                                     //per determinare il numero di righe del tabellone
         col=f.pnlGame.getWidth();     //prendo la dimensione della larghezza
                                     //per determinare il numero di colonne
-        p = new Pezzi(this.f.pnlGame);
     }
 
     public int getR() {
