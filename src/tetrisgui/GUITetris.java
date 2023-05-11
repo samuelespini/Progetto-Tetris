@@ -11,7 +11,6 @@ import java.util.*;
 public class GUITetris extends JFrame {
     
     TabellaGioco tab;
-    ArrayList<Pezzi> listaPezzi = new ArrayList<Pezzi>();
     
     int max = 7;
     int min = 1;
@@ -30,14 +29,10 @@ public class GUITetris extends JFrame {
         System.out.println("" + nRandom);
         Pezzi p =new Pezzi();   
         this.pnlGame.add(p);
-        p.setPezzo(2);
+        p.setPezzo(nRandom);
         p.repaint();
-        listaPezzi.add(p);
         i++;
-
     }
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

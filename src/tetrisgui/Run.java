@@ -1,8 +1,8 @@
 package tetrisgui;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
-
 
 /**
  *
@@ -11,9 +11,10 @@ import javax.swing.*;
 public class Run extends Thread{
     int i = 0;
     GUITetris f;
-    
-    public Run(GUITetris gayfrociocomunista) {
-        this.f = gayfrociocomunista;
+    Graphics2D objPezzo;
+        
+    public Run(GUITetris g) {
+        this.f = g;
     }
     
     public void run()  
