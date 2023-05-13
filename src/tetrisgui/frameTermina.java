@@ -10,7 +10,7 @@ import static tetrisgui.frameInserisciNome.nomePlayer;
 
 /**
  *
- * @author samus
+ * @author samus & crist
  */
 public class frameTermina extends javax.swing.JFrame {
 

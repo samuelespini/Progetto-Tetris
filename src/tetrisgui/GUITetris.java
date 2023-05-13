@@ -26,12 +26,16 @@ public class GUITetris extends JFrame {
         tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
 
         nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
-        System.out.println("" + nRandom);
-        Pezzi p =new Pezzi();   
+        System.out.println("pezzo numero " + nRandom);
+        Pezzi p =new Pezzi();   //creo oggetto pezzo del tetris.
+        
         this.pnlGame.add(p);
+        
         p.setPezzo(nRandom);
         p.repaint();
-        i++;
+        
+        Movement threadM = new Movement(this, p); //thread per far muovere il pezzo;
+        threadM.start();
     }
     /**
      * This method is called from within the constructor to initialize the form.

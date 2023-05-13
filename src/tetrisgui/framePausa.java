@@ -8,7 +8,7 @@ import java.awt.event.KeyEvent;
 
 /**
  *
- * @author samus
+ * @author samus & crist
  */
 public class framePausa extends javax.swing.JFrame {
 

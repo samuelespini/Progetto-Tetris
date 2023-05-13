@@ -1,3 +1,5 @@
 /dist/
 build/classes/tetrisgui/Pezzi$1.class
 build/classes/tetrisgui/pnlGame.class
+build/classes/tetrisgui/Run.class
+*.class

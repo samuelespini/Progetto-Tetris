@@ -6,7 +6,7 @@ package tetrisgui;
 
 /**
  *
- * @author samus
+ * @author samus & crist
  */
 public class framePunteggi extends javax.swing.JFrame {
 

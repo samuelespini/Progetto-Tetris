@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author samus
+ * @author samus & crist
  */
 public class frameInserisciNome extends javax.swing.JFrame {
 
