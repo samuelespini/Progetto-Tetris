@@ -19,7 +19,6 @@ public class Pezzi extends JPanel{
     int x = 0;
     static int y = 0;
     
-    
     public Pezzi(){
         this.setSize(400, 600);
         this.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
@@ -91,4 +90,5 @@ public class Pezzi extends JPanel{
         g2d = (Graphics2D)g;
         disegna();
     }
+  
 }
