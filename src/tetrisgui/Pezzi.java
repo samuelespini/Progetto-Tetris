@@ -11,7 +11,6 @@ import javax.swing.*;
  */
 public class Pezzi extends JPanel{
     Graphics2D g2d;
-    ArrayList<Graphics2D> listaPezzi = new ArrayList<Graphics2D>();
 
     private int Npezzo = 0;
     int i = 0;
@@ -34,14 +33,12 @@ public class Pezzi extends JPanel{
                 super.paint(g2d);
                 g2d.setColor(Color.red);
                 g2d.fillRect(200, y, 40, 40);
-                listaPezzi.add(g2d);
             break;
 
             case 2: //pezzo I
                 super.paint(g2d);
                 g2d.setColor(Color.green);
                 g2d.fillRect(200, y, 160, 40);
-                listaPezzi.add(g2d);
             break;
             
             case 3: //pezzo L
@@ -49,7 +46,6 @@ public class Pezzi extends JPanel{
                 g2d.setColor(Color.orange);
                 g2d.fillRect(200, y, 40, 120);
                 g2d.fillRect(240, y+80, 40, 40);
-                listaPezzi.add(g2d);
             break;
             
             case 4: //pezzo J
@@ -57,7 +53,6 @@ public class Pezzi extends JPanel{
                 g2d.setColor(Color.pink);
                 g2d.fillRect(240, y, 40, 120);
                 g2d.fillRect(200, y+80, 40, 40);
-                listaPezzi.add(g2d);
             break;
             
             case 5: //pezzo T
@@ -65,7 +60,6 @@ public class Pezzi extends JPanel{
                 g2d.setColor(Color.MAGENTA);
                 g2d.fillRect(200, y, 120, 40);
                 g2d.fillRect(240, y+40, 40, 40);
-                listaPezzi.add(g2d);
             break;
             
             case 6: //pezzo S
@@ -73,7 +67,6 @@ public class Pezzi extends JPanel{
                 g2d.setColor(Color.yellow);
                 g2d.fillRect(200, y+40, 80, 40);
                 g2d.fillRect(240, y, 80, 40);
-                listaPezzi.add(g2d);
             break;
             
             case 7://pezzo S
@@ -81,7 +74,6 @@ public class Pezzi extends JPanel{
                 g2d.setColor(Color.black);
                 g2d.fillRect(200, y, 80, 40);
                 g2d.fillRect(240, y+40, 80, 40);
-                listaPezzi.add(g2d);
             break;
         }
     }

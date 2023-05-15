@@ -19,23 +19,29 @@ public class GUITetris extends JFrame {
     
     int i = 0;
     
+    //Pezzi p =new Pezzi();   //creo oggetto pezzo del tetris.
+
+
     public GUITetris() {
         initComponents();
         setLocationRelativeTo(null); //centro la finestra
+        this.add(new TabellaGioco(this.pnlGame, this)); //creo tabella
         
-        tab = new TabellaGioco(this); //creo tabella astratta per i pezzi
-
         nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
         System.out.println("pezzo numero " + nRandom);
-        Pezzi p =new Pezzi();   //creo oggetto pezzo del tetris.
         
-        this.pnlGame.add(p);
+    
         
+
+
+        //Codice per creare pezzo da classe Pezzi
+        /*this.pnlGame.add(p);
         p.setPezzo(nRandom);
         p.repaint();
         
         Movement threadM = new Movement(this, p); //thread per far muovere il pezzo;
-        threadM.start();
+        threadM.start(); */
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,7 +63,6 @@ public class GUITetris extends JFrame {
         lblnomeInserito = new javax.swing.JLabel();
         lblNomePlayer = new javax.swing.JLabel();
         pnlGame = new javax.swing.JPanel();
-        lblTitolo = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -175,41 +180,30 @@ public class GUITetris extends JFrame {
         pnlGame.setLayout(pnlGameLayout);
         pnlGameLayout.setHorizontalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 394, Short.MAX_VALUE)
         );
         pnlGameLayout.setVerticalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 606, Short.MAX_VALUE)
         );
 
-        lblTitolo.setBackground(new java.awt.Color(45, 46, 131));
-        lblTitolo.setFont(new java.awt.Font("Century Gothic", 0, 24)); // NOI18N
-        lblTitolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitolo.setText("TETRIS");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblTitolo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlControls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitolo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addComponent(pnlControls, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -269,7 +263,6 @@ public class GUITetris extends JFrame {
     public javax.swing.JLabel lblNomePlayer;
     private javax.swing.JLabel lblProssimoPezzo;
     private javax.swing.JLabel lblPunteggio;
-    private javax.swing.JLabel lblTitolo;
     private javax.swing.JLabel lblValorePunteggio;
     private javax.swing.JLabel lblnomeInserito;
     private javax.swing.JPanel pnlControls;

@@ -25,20 +25,21 @@ public class Movement extends Thread{
             while(true){
                 System.out.println("time: " + i);
                 movePiece();
-
-                if(Pezzi.y >= 500){
-                    Pezzi.y = 0;
-                    f.pnlGame.add(new Pezzi());
-                    pezzo.setPezzo((int)(Math.random() * 7) + 1);
-                }
                 
+                if(Pezzi.y > 500){
+                    Pezzi.y = 0;
+                    pezzo.setPezzo((int)(Math.random() * 7) + 1);
+                    //f.p.add(new Pezzi());
+                    
+                }
                 try{
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 i++;
             }
+
     }
     
     public void movePiece(){
@@ -46,7 +47,7 @@ public class Movement extends Thread{
             Pezzi.y+=30; //muovo il pezzo di 30px
             pezzo.repaint();
             try {
-                Thread.sleep(500);
+                Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
