@@ -10,8 +10,6 @@ import java.util.*;
  */
 public class GUITetris extends JFrame {
     
-    TabellaGioco tab;
-    
     int max = 7;
     int min = 1;
     int range = max - min + 1;
@@ -19,28 +17,24 @@ public class GUITetris extends JFrame {
     
     int i = 0;
     
-    //Pezzi p =new Pezzi();   //creo oggetto pezzo del tetris.
-
 
     public GUITetris() {
         initComponents();
         setLocationRelativeTo(null); //centro la finestra
-        this.add(new TabellaGioco(this.pnlGame, this)); //creo tabella
+        TabellaGioco tab = new TabellaGioco(this.pnlGame, this);
         
         nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
-        System.out.println("pezzo numero " + nRandom);
         
-    
         
-
-
         //Codice per creare pezzo da classe Pezzi
-        /*this.pnlGame.add(p);
+        Pezzi p = new Pezzi(tab);   //creo oggetto pezzo del tetris.
+        this.pnlGame.add(p);
         p.setPezzo(nRandom);
         p.repaint();
         
-        Movement threadM = new Movement(this, p); //thread per far muovere il pezzo;
-        threadM.start(); */
+        
+        //Movement threadM = new Movement(this, p); //thread per far muovere il pezzo;
+        //threadM.start();
         
     }
     /**
@@ -180,11 +174,11 @@ public class GUITetris extends JFrame {
         pnlGame.setLayout(pnlGameLayout);
         pnlGameLayout.setHorizontalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 394, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         pnlGameLayout.setVerticalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 606, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -193,7 +187,7 @@ public class GUITetris extends JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pnlGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(pnlControls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -203,7 +197,7 @@ public class GUITetris extends JFrame {
             .addComponent(pnlControls, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();

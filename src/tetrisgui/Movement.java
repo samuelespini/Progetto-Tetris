@@ -12,6 +12,7 @@ public class Movement extends Thread{
 
     GUITetris f;
     Pezzi pezzo;
+    
     int y2;
     int i = 0;
     
@@ -30,8 +31,8 @@ public class Movement extends Thread{
                     Pezzi.y = 0;
                     pezzo.setPezzo((int)(Math.random() * 7) + 1);
                     //f.p.add(new Pezzi());
-                    
                 }
+
                 try{
                     Thread.sleep(500);
                 } catch (Exception e) {
@@ -39,7 +40,6 @@ public class Movement extends Thread{
                 }
                 i++;
             }
-
     }
     
     public void movePiece(){
