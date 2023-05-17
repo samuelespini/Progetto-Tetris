@@ -11,8 +11,9 @@ import java.util.*;
 public class GUITetris extends JFrame {
     
     int max = 7;
-    int min = 1;
+    int min = 2;
     int range = max - min + 1;
+    
     int nRandom;
     
     int i = 0;
@@ -21,21 +22,21 @@ public class GUITetris extends JFrame {
     public GUITetris() {
         initComponents();
         setLocationRelativeTo(null); //centro la finestra
+        
+        
         TabellaGioco tab = new TabellaGioco(this.pnlGame, this);
         
         nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
         
-        
-        //Codice per creare pezzo da classe Pezzi
-        Pezzi p = new Pezzi(tab);   //creo oggetto pezzo del tetris.
-        this.pnlGame.add(p);
+        //creo pezzi da classe Pezzi
+        tab.fillTablePieces(nRandom); //creo il pezzo sulla matrice
+        Pezzi p = new Pezzi(tab);   //creo il pezzo graficamente sfruttando la matrice.        
+        this.pnlGame.add(p);     //aggiungo il pezzo al pannello
         p.setPezzo(nRandom);
         p.repaint();
         
-        
         Movement threadM = new Movement(this, p, tab); //thread per far muovere il pezzo;
         threadM.start();
-        
     }
     /**
      * This method is called from within the constructor to initialize the form.

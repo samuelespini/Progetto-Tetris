@@ -20,15 +20,6 @@ public class TabellaGioco extends JPanel{
     //griglia tabella
     int tabMat[][] = new int[15][10];
     
-    //pezzi nella matrice
-    /*int pezzoO[][] = new int[15][10];
-    int pezzoL[][] = new int[15][10];
-    int pezzoS[][] = new int[15][10];
-    int pezzoZ[][] = new int[15][10];
-    int pezzoI[][] = new int[15][10];
-    int pezzoT[][] = new int[15][10];
-    int pezzoJ[][] = new int[15][10];*/
-    
     public TabellaGioco(JPanel pnlTable, GUITetris frame) {
         this.f = frame;
           
@@ -38,12 +29,14 @@ public class TabellaGioco extends JPanel{
         this.setSize(400, 600);
         this.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         pnlTable.setVisible(true);
-        fillTable(); //riempie la matrice di zeri
+        fillTable(); //imposto tutta la matrice a 0
     }
 
     public void printTable(){
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 10; j++) {
+        System.out.println("TABLE MATRIX: ");
+        
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLS; j++) {
                 System.out.print(tabMat[i][j] + " ");
             }
             System.out.println();
@@ -52,58 +45,58 @@ public class TabellaGioco extends JPanel{
     
     public void fillTablePieces(int nPezzo){        
         switch (nPezzo) {
-            case 1:  //pezzo O
+            case 2:  //pezzo O
                 tabMat[0][4] = 2;
                 tabMat[0][5] = 2;
                 tabMat[1][4] = 2;
                 tabMat[1][5] = 2;
             break;
 
-            case 2: //pezzo I
-                tabMat[0][4] = 2;
-                tabMat[0][5] = 2;
-                tabMat[0][6] = 2;
-                tabMat[0][7] = 2;
+            case 3: //pezzo I
+                tabMat[0][4] = 3;
+                tabMat[0][5] = 3;
+                tabMat[0][6] = 3;
+                tabMat[0][7] = 3;
             break;
             
-            case 3: //pezzo L
-                tabMat[0][4] = 2;
-                tabMat[1][4] = 2;
-                tabMat[2][4] = 2;
-                tabMat[2][5] = 2;
+            case 4: //pezzo L
+                tabMat[0][4] = 4;
+                tabMat[1][4] = 4;
+                tabMat[2][4] = 4;
+                tabMat[2][5] = 4;
             break;
             
-            case 4: //pezzo J
-                tabMat[0][5] = 2;
-                tabMat[1][5] = 2;
-                tabMat[2][5] = 2;
-                tabMat[2][4] = 2;
+            case 5: //pezzo J
+                tabMat[0][5] = 5;
+                tabMat[1][5] = 5;
+                tabMat[2][5] = 5;
+                tabMat[2][4] = 5;
             break;
             
-            case 5: //pezzo T
-                tabMat[0][3] = 2;
-                tabMat[0][4] = 2;
-                tabMat[0][5] = 2;
-                tabMat[1][4] = 2;
+            case 6: //pezzo T
+                tabMat[0][3] = 6;
+                tabMat[0][4] = 6;
+                tabMat[0][5] = 6;
+                tabMat[1][4] = 6;
             break;
             
-            case 6: //pezzo S
-                tabMat[0][5] = 2;
-                tabMat[0][4] = 2;
-                tabMat[1][4] = 2;
-                tabMat[1][3] = 2;
+            case 7: //pezzo S
+                tabMat[0][5] = 7;
+                tabMat[0][4] = 7;
+                tabMat[1][4] = 7;
+                tabMat[1][3] = 7;
             break;
             
-            case 7://pezzo Z
-                tabMat[0][4] = 2;
-                tabMat[0][5] = 2;
-                tabMat[1][5] = 2;
-                tabMat[1][6] = 2;
+            case 8://pezzo Z
+                tabMat[0][4] = 8;
+                tabMat[0][5] = 8;
+                tabMat[1][5] = 8;
+                tabMat[1][6] = 8;
             break;
         }
     }
     
-    public void fillTable(){
+    public void fillTable(){ //riempio matrice con 0
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 10; j++) {
                 tabMat[i][j] = 0;
@@ -112,14 +105,14 @@ public class TabellaGioco extends JPanel{
     }
     
     
-    @Override
-    public void paint(Graphics g){
-        super.paint(g);
-        
-        for (int x = 0; x < ROWS; x++) {
-            for (int y = 0; y < COLS; y++) {
-                g.drawRect(x * sizeCell, y * sizeCell, sizeCell, sizeCell);
-            }
-        }
-    }
+//    @Override
+//    public void paint(Graphics g){ //disegno griglia matrice
+//        super.paint(g);
+//        
+//        for (int x = 0; x < ROWS; x++) {
+//            for (int y = 0; y < COLS; y++) {
+//                g.drawRect(x * sizeCell, y * sizeCell, sizeCell, sizeCell);
+//            }
+//        }
+//    }
 }
