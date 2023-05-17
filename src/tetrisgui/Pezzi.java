@@ -17,8 +17,8 @@ public class Pezzi extends JPanel {
     private int Npezzo = 0;
     int i = 0;
 
-    int x = 0;
-    static int y = 0;
+    int x = 0; //punto ascissa pezzo
+    static int y = 0; //punto ordinata pezzo
 
     public Pezzi(TabellaGioco t) {
         this.setSize(400, 600);
@@ -45,7 +45,7 @@ public class Pezzi extends JPanel {
                 System.out.println("pezzo numero " + Npezzo);
                 super.paint(g2d);
                 g2d.setColor(Color.green);
-                g2d.fillRect(200, y, 160, 40);
+                g2d.fillRect(160, y, 160, 40);
                 table.fillTablePieces(Npezzo);
                 table.printTable();
             break;

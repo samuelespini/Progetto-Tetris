@@ -33,8 +33,8 @@ public class GUITetris extends JFrame {
         p.repaint();
         
         
-        //Movement threadM = new Movement(this, p); //thread per far muovere il pezzo;
-        //threadM.start();
+        Movement threadM = new Movement(this, p, tab); //thread per far muovere il pezzo;
+        threadM.start();
         
     }
     /**

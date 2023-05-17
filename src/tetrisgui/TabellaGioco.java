@@ -13,8 +13,8 @@ import javax.swing.*;
 public class TabellaGioco extends JPanel{
     GUITetris f;
     
-    int gridRows;
-    int gridCol;
+    static final int ROWS = 15;
+    static final int COLS = 10;
     int sizeCell;
     
     //griglia tabella
@@ -31,11 +31,7 @@ public class TabellaGioco extends JPanel{
     
     public TabellaGioco(JPanel pnlTable, GUITetris frame) {
         this.f = frame;
-       
-        gridRows=this.f.pnlGame.getWidth() / 15;     //prendo la dimensione dell'altezza
-                                                //per determinare il numero di righe del tabellone
-        gridCol=this.f.pnlGame.getWidth() / 10;      //prendo la dimensione della larghezza
-                                                //per determinare il numero di colonne
+          
         sizeCell = 40;
         
         this.setVisible(false);
@@ -45,22 +41,6 @@ public class TabellaGioco extends JPanel{
         fillTable(); //riempie la matrice di zeri
     }
 
-    public int getGridRows() {
-        return gridRows;
-    }
-
-    public void setGridRows(int gridRows) {
-        this.gridRows = gridRows;
-    }
-
-    public int getGridCol() {
-        return gridCol;
-    }
-
-    public void setGridCol(int gridCol) {
-        this.gridCol = gridCol;
-    }
-    
     public void printTable(){
         for (int i = 0; i < 15; i++) {
             for (int j = 0; j < 10; j++) {
@@ -70,12 +50,9 @@ public class TabellaGioco extends JPanel{
         }
     }   
     
-    public void fillTablePieces(int nPezzo){
-        nPezzo = f.nRandom;
-        
+    public void fillTablePieces(int nPezzo){        
         switch (nPezzo) {
             case 1:  //pezzo O
-                
                 tabMat[0][4] = 2;
                 tabMat[0][5] = 2;
                 tabMat[1][4] = 2;
@@ -83,7 +60,6 @@ public class TabellaGioco extends JPanel{
             break;
 
             case 2: //pezzo I
-                
                 tabMat[0][4] = 2;
                 tabMat[0][5] = 2;
                 tabMat[0][6] = 2;
@@ -140,15 +116,10 @@ public class TabellaGioco extends JPanel{
     public void paint(Graphics g){
         super.paint(g);
         
-        for (int x = 0; x < gridRows; x++) {
-            for (int y = 0; y < gridCol; y++) {
+        for (int x = 0; x < ROWS; x++) {
+            for (int y = 0; y < COLS; y++) {
                 g.drawRect(x * sizeCell, y * sizeCell, sizeCell, sizeCell);
             }
         }
     }
-    
-    //fare griglia per pezzi
-    //usare matrice per fare pezzi
-    //copiare quello in class Pezzi in class TabellaGioco
-    
 }
