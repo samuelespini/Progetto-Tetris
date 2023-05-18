@@ -13,8 +13,8 @@ import javax.swing.*;
 public class TabellaGioco extends JPanel{
     GUITetris f;
     
-    static final int ROWS = 15;
-    static final int COLS = 10;
+    static int ROWS = 15;
+    static int COLS = 10;
     int sizeCell;
     
     //griglia tabella
@@ -33,7 +33,7 @@ public class TabellaGioco extends JPanel{
     }
 
     public void printTable(){
-        System.out.println("TABLE MATRIX: ");
+        System.out.println("MATRIX: ");
         
         for (int i = 0; i < ROWS; i++) {
             for (int j = 0; j < COLS; j++) {
