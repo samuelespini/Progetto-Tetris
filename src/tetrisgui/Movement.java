@@ -30,9 +30,8 @@ public class Movement extends Thread{
         while(true){
             System.out.println("time: " + i);
             
-            checkMoveNumbers();
             moveNumbers();
-            pezzo.repaint();
+            movePiece();
             
             /*if(Pezzi.cooYPiece > 500){
                 Pezzi.cooYPiece = 0;
@@ -41,7 +40,7 @@ public class Movement extends Thread{
             }*/
 
             try{
-                Thread.sleep(500);
+                Thread.sleep(MOVEMENT_SPEED);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -49,17 +48,17 @@ public class Movement extends Thread{
         }
     }
     
-    /*public void movePiece(){  //muove pezzo in panello tramite graphics
-       //while (Pezzi.cooYPiece < TabellaGioco.ROWS*40) {
-            Pezzi.cooYPiece+=40; //muovo il pezzo di 40px
-            pezzo.repaint();
-            try {
-                Thread.sleep(MOVEMENT_SPEED);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        //}
-    }*/
+    public void movePiece(){  //muove pezzo in panello tramite graphics
+        Pezzi.cooYPiece+=40; //muovo il pezzo di 40px
+        pezzo.repaint();
+        
+        /*  
+            ATTENZIONE!!
+            Il pezzo si sposta in continuazione e linearmente senza resettare gli 0 perchè al momento
+            del repaint cooYPiece e cooXPiece ritornano al valore di i e j iniziale nel metodo paintPiece()
+            RISOLVERE!!
+        */
+    }
     
     public boolean checkMoveNumbers(){ //controlla se al di sotto del pezzo disegnato nella matrice sia possibile spostare il numero
         for (int i = TabellaGioco.ROWS - 1; i > 0 ; i--) {
@@ -76,9 +75,8 @@ public class Movement extends Thread{
     public void moveNumbers(){  //se al di sotto della matrice vi è spazio (cioè numeri 0), il pezzo viene spostato
         for (int i = TabellaGioco.ROWS-1; i >= 0 ; i--) { //scorro la matrice partendo dal fondo
             for (int j = TabellaGioco.COLS-1; j >= 0; j--) {
-                if(table.tabMat[i][j] >= 2 || table.tabMat[i][j] <= 8){ //se cè la parte di pezzo
-                    if (i == 14) {}
-                    else{
+                if(table.tabMat[i][j] >= 2 && table.tabMat[i][j] <= 8){ //se cè la parte di pezzo
+                    if (i != 14) {
                         table.tabMat[i][j] = 0; 
                         table.tabMat[i+1][j] = f.nRandom;
                         System.out.println("PIECE MOVED");

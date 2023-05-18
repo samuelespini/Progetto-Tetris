@@ -32,7 +32,7 @@ public class Pezzi extends JPanel {
         this.Npezzo = pezzo;
     }
 
-    public void disegna(){
+    public void paintPiece(){
         for (int i = 0; i < TabellaGioco.ROWS; i++) { //scorro la matrice
             for (int j = 0; j < TabellaGioco.COLS; j++) {
                 if (table.tabMat[i][j] != 1 && table.tabMat[i][j] != 0) { //se nella matrice trova un numero 
@@ -107,6 +107,6 @@ public class Pezzi extends JPanel {
     @Override
     public void paint(Graphics g) {
         g2d = (Graphics2D) g;
-        disegna();
+        paintPiece();
     }
 }

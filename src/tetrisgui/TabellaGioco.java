@@ -15,15 +15,13 @@ public class TabellaGioco extends JPanel{
     
     static int ROWS = 15;
     static int COLS = 10;
-    int sizeCell;
+    static int CELL_SIZE = 40;
     
     //griglia tabella
     int tabMat[][] = new int[15][10];
     
     public TabellaGioco(JPanel pnlTable, GUITetris frame) {
         this.f = frame;
-          
-        sizeCell = 40;
         
         this.setVisible(false);
         this.setSize(400, 600);
@@ -43,7 +41,7 @@ public class TabellaGioco extends JPanel{
         }
     }   
     
-    public void fillTablePieces(int nPezzo){        
+    public void fillTablePieces(int nPezzo){
         switch (nPezzo) {
             case 2:  //pezzo O
                 tabMat[0][4] = 2;
@@ -103,16 +101,4 @@ public class TabellaGioco extends JPanel{
             }
         }
     }
-    
-    
-//    @Override
-//    public void paint(Graphics g){ //disegno griglia matrice
-//        super.paint(g);
-//        
-//        for (int x = 0; x < ROWS; x++) {
-//            for (int y = 0; y < COLS; y++) {
-//                g.drawRect(x * sizeCell, y * sizeCell, sizeCell, sizeCell);
-//            }
-//        }
-//    }
 }
