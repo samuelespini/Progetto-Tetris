@@ -8,34 +8,34 @@ import javax.swing.*;
  * @author samus & crist
  */
 public class GUITetris extends JFrame {
-    
-    int max = 7;
+
+    int max = 8;
     int min = 2;
     int range = max - min + 1;
-    
+
     int nRandom;
-    
+    static int flag = 0;
     int i = 0;
-    
 
     public GUITetris() {
         initComponents();
         setLocationRelativeTo(null); //centro la finestra
-        
+
         TabellaGioco tab = new TabellaGioco(this.pnlGame, this);
-        
-        nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
-        
+
+        nRandom = (int) (Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
+
         //creo pezzi da classe Pezzi
-        tab.fillTablePieces(nRandom); //creo il pezzo sulla matrice
-        Pezzi p = new Pezzi(tab);   //creo il pezzo graficamente sfruttando la matrice.        
-        this.pnlGame.add(p);     //aggiungo il pezzo al pannello
+        tab.fillTablePieces(nRandom);       //creo il pezzo sulla matrice
+        flag = 0;                                 //il pezzo viene creato per la prima volta sulla matrice
+        Pezzi p = new Pezzi(tab);              //creo il pezzo graficamente sfruttando la matrice.        
         p.setPezzo(nRandom);
-        //p.repaint();
-        
+        this.pnlGame.add(p);                  //aggiungo il pezzo al pannello
+
         Movement threadM = new Movement(this, p, tab); //thread per far muovere il pezzo;
         threadM.start();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -167,13 +167,14 @@ public class GUITetris extends JFrame {
         );
 
         pnlGame.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        pnlGame.setMaximumSize(new java.awt.Dimension(400, 600));
         pnlGame.setPreferredSize(new java.awt.Dimension(400, 600));
 
         javax.swing.GroupLayout pnlGameLayout = new javax.swing.GroupLayout(pnlGame);
         pnlGame.setLayout(pnlGameLayout);
         pnlGameLayout.setHorizontalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 353, Short.MAX_VALUE)
         );
         pnlGameLayout.setVerticalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,8 +187,8 @@ public class GUITetris extends JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlGame, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlControls, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -196,7 +197,7 @@ public class GUITetris extends JFrame {
             .addComponent(pnlControls, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -209,9 +210,9 @@ public class GUITetris extends JFrame {
 
     private void btnTerminaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTerminaActionPerformed
         new frameTermina(this).setVisible(true);
+
     }//GEN-LAST:event_btnTerminaActionPerformed
 
-    
     /**
      * @param args the command line arguments
      */

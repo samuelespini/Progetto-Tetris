@@ -10,7 +10,7 @@ import javax.swing.*;
  *
  * @author samus & crist
  */
-public class TabellaGioco extends JPanel{
+public class TabellaGioco{
     GUITetris f;
     
     static int ROWS = 15;
@@ -23,9 +23,6 @@ public class TabellaGioco extends JPanel{
     public TabellaGioco(JPanel pnlTable, GUITetris frame) {
         this.f = frame;
         
-        this.setVisible(false);
-        this.setSize(400, 600);
-        this.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         pnlTable.setVisible(true);
         fillTable(); //imposto tutta la matrice a 0
     }
@@ -91,12 +88,15 @@ public class TabellaGioco extends JPanel{
                 tabMat[1][5] = 8;
                 tabMat[1][6] = 8;
             break;
+            
+            default:
+            break;
         }
     }
     
     public void fillTable(){ //riempio matrice con 0
-        for (int i = 0; i < 15; i++) {
-            for (int j = 0; j < 10; j++) {
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLS; j++) {
                 tabMat[i][j] = 0;
             }
         }

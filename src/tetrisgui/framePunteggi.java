@@ -14,8 +14,8 @@ public class framePunteggi extends javax.swing.JFrame {
      * Creates new form framePunteggi
      */
     public framePunteggi() {
-        setLocationRelativeTo(null);
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
