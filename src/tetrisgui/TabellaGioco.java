@@ -18,11 +18,10 @@ public class TabellaGioco{
     static int CELL_SIZE = 40;
     
     //griglia tabella
-    int tabMat[][] = new int[15][10];
+    static int tabMat[][] = new int[15][10];
     
     public TabellaGioco(JPanel pnlTable, GUITetris frame) {
         this.f = frame;
-        
         pnlTable.setVisible(true);
         fillTable(); //imposto tutta la matrice a 0
     }

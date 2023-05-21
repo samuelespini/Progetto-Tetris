@@ -18,7 +18,7 @@ public class Movement extends Thread {
     int y2;
     int i = 0;
 
-    int MOVEMENT_SPEED = 1000;
+    int MOVEMENT_SPEED = 500;
 
     public Movement(GUITetris g, Pezzi p, TabellaGioco t) {
         this.f = g;
@@ -30,15 +30,13 @@ public class Movement extends Thread {
     public void run() {
         while (true) {
             System.out.println("time: " + i);
-            
             if(checkLastRow()){
                 moveNumbers();
                 movePiece();
-            }
-            
-            else{
-                GUITetris.flag = 0;
-                f.pnlGame.add(new Pezzi(table));
+            }else{
+                //GUITetris.flag = 0;
+                addPiece();
+                //f.pnlGame.add(new Pezzi(table));
             }
                 
 //            checkMoveNumbers();
@@ -111,5 +109,9 @@ public class Movement extends Thread {
             return false;
         
         return false;
+    }
+    
+    public void addPiece(){
+        table.fillTablePieces(pezzo.generateRandom());
     }
 }

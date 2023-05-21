@@ -9,27 +9,27 @@ import javax.swing.*;
  */
 public class GUITetris extends JFrame {
 
+    static int flag = 0;
+    int i = 0;
+    
     int max = 8;
     int min = 2;
     int range = max - min + 1;
-
-    int nRandom;
-    static int flag = 0;
-    int i = 0;
-
+    int nRandom; //numeroPezzo
+    
     public GUITetris() {
         initComponents();
         setLocationRelativeTo(null); //centro la finestra
 
         TabellaGioco tab = new TabellaGioco(this.pnlGame, this);
 
-        nRandom = (int) (Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
+        nRandom = (int)(Math.random() * range) + min; //genero numero che servirà per sapere che pezzo generare;
 
         //creo pezzi da classe Pezzi
         tab.fillTablePieces(nRandom);       //creo il pezzo sulla matrice
         flag = 0;                                 //il pezzo viene creato per la prima volta sulla matrice
-        Pezzi p = new Pezzi(tab);              //creo il pezzo graficamente sfruttando la matrice.        
-        p.setPezzo(nRandom);
+        Pezzi p = new Pezzi(tab);               //creo il pezzo graficamente sfruttando la matrice.        
+        p.setnPezzo(nRandom);
         this.pnlGame.add(p);                  //aggiungo il pezzo al pannello
 
         Movement threadM = new Movement(this, p, tab); //thread per far muovere il pezzo;
