@@ -29,14 +29,19 @@ public class Movement extends Thread {
 
     public void run() {
         while (true) {
+//            this.pezzo = new Pezzi();
+//            pezzo.removeAll();
+//            f.pnlGame.add(this.pezzo);
+
             System.out.println("time: " + i);
             if(checkLastRow()){
                 moveNumbers();
                 movePiece();
-            }else{
-                //GUITetris.flag = 0;
+            }
+            else{
+                GUITetris.flag = 1;
                 addPiece();
-                //f.pnlGame.add(new Pezzi(table));
+                f.pnlGame.add(new Pezzi(table));
             }
                 
 //            checkMoveNumbers();
@@ -71,21 +76,6 @@ public class Movement extends Thread {
             }
         }
         table.tabMat[0] = lastRow; //imposto la prima riga degli array con l'ultima
-        
-        
-
-//        for (int i = TabellaGioco.ROWS-1; i > 0 ; i--) { //scorro la matrice partendo dal fondo
-//            for (int j = TabellaGioco.COLS-1; j >= 0; j--) {
-//                if(table.tabMat[i][j] >= 2 && table.tabMat[i][j] <= 8){ //se cè la parte di pezzo
-//                    if(i != 14){
-//                        int n = table.tabMat[i][j];
-//                        table.tabMat[i+1][j] = n;
-//                        System.out.println("PIECE MOVED");
-//                        //table.printTable();
-//                    }
-//                }
-//            }
-//        }
     }
 
     public void movePiece() {  //muove pezzo in panello tramite graphics
@@ -97,7 +87,7 @@ public class Movement extends Thread {
     public boolean checkLastRow(){
         int cont = 0;
         for (int col = 0; col < TabellaGioco.COLS; col++) {
-            if(table.tabMat[14][col] > 0){ //controllo gli 0 nell'ultima riga
+            if(table.tabMat[14][col] != 0){ //controllo gli 0 nell'ultima riga
                 cont++;
             }
         }
@@ -105,10 +95,10 @@ public class Movement extends Thread {
         if(cont == 0) //ultima riga della matrice è pulita
             return true; 
         
-        else if(cont > 0) //ultima riga sporca
+        else if(cont != 0) //ultima riga sporca
             return false;
         
-        return false;
+        return true;
     }
     
     public void addPiece(){

@@ -11,7 +11,7 @@ import javax.swing.*;
  */
 public class Pezzi extends JPanel {
 
-    Graphics2D g2d;
+    static Graphics2D g2d;
     TabellaGioco table;
 
     int i = 0;
@@ -26,6 +26,11 @@ public class Pezzi extends JPanel {
         this.setSize(400, 600);
         this.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
         this.table = t;
+    }
+
+    public Pezzi() {
+        this.setSize(400, 600);
+        this.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
     }
 
     public void setnPezzo(int nPezzo) {
@@ -160,6 +165,8 @@ public class Pezzi extends JPanel {
                     } else if (table.tabMat[i][j] == 0) {}
                 }
             }
+        }else if(GUITetris.flag == 2){
+            paintZeros();
         }
     }
 
@@ -177,5 +184,17 @@ public class Pezzi extends JPanel {
         
         n = (int) (Math.random() * range) + min;
         return n;
+    }
+    
+    public void paintZeros(){
+        for (int i = 0; i < TabellaGioco.ROWS; i++) { //scorro la matrice
+            for (int j = 0; j < TabellaGioco.COLS; j++) {
+                if(table.tabMat[i][j] == 0){
+                        g2d.setColor(new Color(214, 217, 224));
+                        g2d.fillRect(i * 40, j * 40, TabellaGioco.CELL_SIZE, TabellaGioco.CELL_SIZE);
+                        table.printTable();
+                }
+            }
+        }
     }
 }
