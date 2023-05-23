@@ -41,7 +41,7 @@ public class Pezzi extends JPanel {
                         cooXPiece = j;
                         cooYPiece = i;
 
-                        switch (nPezzo) {
+                        switch (nPezzo) { //
                             case 2:  //pezzo O
                                 g2d.setColor(Color.RED);
                                 g2d.fillRect(cooXPiece * 40, cooYPiece * 40, 40, 40);
@@ -166,6 +166,7 @@ public class Pezzi extends JPanel {
     @Override
     public void paint(Graphics g) {
         g2d = (Graphics2D) g;
+        g2d.clearRect(0, 0, 400, 600);
         paintPiece();
     }
     

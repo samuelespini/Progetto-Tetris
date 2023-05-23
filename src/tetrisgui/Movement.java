@@ -31,10 +31,10 @@ public class Movement extends Thread {
 
     public void run() {
         while (true) {
-            Pezzi np = new Pezzi(table);
-            f.pnlGame.removeAll();
-            f.pnlGame.add(np);
             System.out.println("time: " + i);
+
+            //modificare metodo checkLastRow con checkMoveNumbers
+            
             if(checkLastRow() == false){
                 GUITetris.flag = 1;
                 addPiece();
@@ -45,7 +45,6 @@ public class Movement extends Thread {
                 movePiece();
             }
                 
-//            checkMoveNumbers();
 
             try {
                 Thread.sleep(MOVEMENT_SPEED);
@@ -94,16 +93,15 @@ public class Movement extends Thread {
             }
         }
         
-        if(cont > 0) //ultima riga della matrice è sporca almeno di un numero
-            return false; 
         
-        else if(cont == 10) //ultima riga completa
-            return true;
-            //aggiungere spostamento completo della matrice verso il basso
         
-        else if(cont != 0)
-            return false;
-        
+//        if(cont == 10) //ultima riga della matrice è sporca almeno di un numero
+//            return false; 
+//        
+//        else if(cont > 0) //ultima riga completa
+//            return true;
+//            //aggiungere spostamento completo della matrice verso il basso
+//        
         return true;
     }
     
