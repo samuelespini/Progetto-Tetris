@@ -17,8 +17,10 @@ public class Movement extends Thread {
 
     int y2;
     int i = 0;
+    
+    
 
-    int MOVEMENT_SPEED = 500;
+    int MOVEMENT_SPEED = 1000;
 
     public Movement(GUITetris g, Pezzi p, TabellaGioco t) {
         this.f = g;
@@ -29,19 +31,18 @@ public class Movement extends Thread {
 
     public void run() {
         while (true) {
-//            this.pezzo = new Pezzi();
-//            pezzo.removeAll();
-//            f.pnlGame.add(this.pezzo);
-
+            Pezzi np = new Pezzi(table);
+            f.pnlGame.removeAll();
+            f.pnlGame.add(np);
             System.out.println("time: " + i);
-            if(checkLastRow()){
-                moveNumbers();
-                movePiece();
-            }
-            else{
+            if(checkLastRow() == false){
                 GUITetris.flag = 1;
                 addPiece();
                 f.pnlGame.add(new Pezzi(table));
+            }
+            else if(checkLastRow()){
+                moveNumbers();
+                movePiece();
             }
                 
 //            checkMoveNumbers();
@@ -51,6 +52,7 @@ public class Movement extends Thread {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+
             i++;
         }
     }
@@ -78,10 +80,10 @@ public class Movement extends Thread {
         table.tabMat[0] = lastRow; //imposto la prima riga degli array con l'ultima
     }
 
-    public void movePiece() {  //muove pezzo in panello tramite graphics
+    /*public void movePiece() {  //muove pezzo in panello tramite graphics
         GUITetris.flag = 1;
         pezzo.repaint();
-    }
+    }*/
     
     
     public boolean checkLastRow(){
@@ -92,13 +94,22 @@ public class Movement extends Thread {
             }
         }
         
-        if(cont == 0) //ultima riga della matrice è pulita
-            return true; 
+        if(cont > 0) //ultima riga della matrice è sporca almeno di un numero
+            return false; 
         
-        else if(cont != 0) //ultima riga sporca
+        else if(cont == 10) //ultima riga completa
+            return true;
+            //aggiungere spostamento completo della matrice verso il basso
+        
+        else if(cont != 0)
             return false;
         
         return true;
+    }
+    
+    public void movePiece(){
+        GUITetris.flag = 1;
+        pezzo.repaint();
     }
     
     public void addPiece(){
